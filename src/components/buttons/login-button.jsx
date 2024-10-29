@@ -13,7 +13,7 @@ export const LoginButton = () => {
   };
 
   return (
-    <button className="button__login" onClick={handleLogin}>
+    <button className="bg-fuchsia-400 rounded-md px-4 py-2 text-white" onClick={handleLogin}>
       Log In
     </button>
   );

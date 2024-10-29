@@ -13,7 +13,7 @@ export const LogoutButton = () => {
   };
 
   return (
-    <button className="button__logout" onClick={handleLogout}>
+    <button className="bg-fuchsia-400 rounded-md px-4 py-2 text-white" onClick={handleLogout}>
       Log Out
     </button>
   );
