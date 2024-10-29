@@ -1,11 +1,15 @@
-// server.js
+//server/server.js
 import express from 'express';
 import { db } from '../src/db/index.js';
 import { postsTable } from '../src/db/schema.js'; // Ensure this points to where your schema is defined
+import emailRoutes from './emailRoute.js'; // Import your email routes
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
+// Existing post routes
 app.post('/posts/create', async (req, res) => {
   const { title, content, author, author_id, slug } = req.body;
 
@@ -34,6 +38,9 @@ app.get('/posts/entries', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch posts' });
     }
 });
+
+// Add the email routes under the '/api' prefix
+app.use('/api', emailRoutes); // Now you can call /api/send-email
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
