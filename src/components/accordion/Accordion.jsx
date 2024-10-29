@@ -1,6 +1,6 @@
 import "./Accordion.css"
 
-const Accordion = ({ toggleAccordion, id, show, title, children }) => {
+const Accordion = ({ toggleAccordion, id, show, title, children, author }) => {
   const clickHandler = () => {
     toggleAccordion(id)
   }
@@ -10,7 +10,10 @@ const Accordion = ({ toggleAccordion, id, show, title, children }) => {
         className="flex justify-between items-center p-4 cursor-pointer"
         onClick={clickHandler}
       >
-        <h2 className="text-lg font-semibold">{title}</h2>
+        <div className="flex flex-col">
+          <h2 className="text-lg font-semibold">{title}</h2>
+          <h3 className="text-md">By {author}</h3>
+        </div>
         <div
           className={`transform ${
             show ? "rotate-180" : "rotate-0"

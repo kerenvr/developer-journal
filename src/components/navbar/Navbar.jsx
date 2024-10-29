@@ -20,9 +20,12 @@ const Navbar = () => {
                 <div className='newsletter'>
                     <Link to="/newsletter">Newsletter</Link>
                 </div>
-                {isAuthenticated && (
-                    <div className='blog'>
+                <div className='blog'>
                      <Link to="/blog">Blog</Link>
+                 </div>
+                {isAuthenticated && (
+                    <div className='create'>
+                     <Link to="/journal/create">Create</Link>
                  </div>
                 )}
             </div>

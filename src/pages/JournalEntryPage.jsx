@@ -27,7 +27,7 @@ export default function JournalEntry() {
         e.preventDefault();
         setPublishing(true); // Set publishing state
 
-        const author = user.name; // Assuming user.name contains the author's name
+        const author = user.nickname; // Assuming user.name contains the author's name
         const authorId = user.sub; // Auth0 user ID
         const slug = slugifySentences(title); // Create slug from title
 

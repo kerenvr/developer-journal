@@ -59,6 +59,7 @@ const BlogPage = () => {
           toggleAccordion={toggleAccordion}
           show={posts.show}
           title={posts.title}
+          author={posts.author}
         >
           <p>{posts.content}</p>
         </Accordion>
