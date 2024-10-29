@@ -7,6 +7,7 @@ import JournalPage from "./pages/JournalPage"
 import NewsletterPage from "./pages/NewsletterPage"
 import { Route,Routes } from 'react-router-dom';
 import { CallbackPage } from "./pages/callback-page";
+import JournalEntry from "./pages/JournalEntryPage"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/blog"  element={<BlogPage/>}/>
             <Route path="/newsletter"  element={<NewsletterPage/>}/>
             <Route path="/callback"  element={<CallbackPage/>}/>
+            <Route path="/journal/create"  element={<JournalEntry/>}/>
           </Routes>
         </div>
       </div>

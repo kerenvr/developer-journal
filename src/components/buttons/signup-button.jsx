@@ -5,14 +5,21 @@ export const SignupButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   const handleSignUp = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "/profile",
-      },
-      authorizationParams: {
-        screen_hint: "signup",
-      },
-    });
+    console.log("Sign Up button clicked."); // Debugging statement
+
+    try {
+      await loginWithRedirect({
+        appState: {
+          returnTo: "/profile",
+        },
+        authorizationParams: {
+          screen_hint: "signup",
+        },
+      });
+      console.log("Redirecting to Auth0 for sign up..."); // Debugging statement
+    } catch (error) {
+      console.error("Error during loginWithRedirect:", error); // Log any errors
+    }
   };
 
   return (

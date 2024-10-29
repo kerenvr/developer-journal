@@ -14,9 +14,9 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
     navigate(appState?.returnTo || window.location.pathname);
   };
 
-  console.log("Domain:", domain);
-  console.log("Client ID:", clientId);
-  console.log("Redirect URI:", redirectUri);
+  // console.log("Domain:", domain);
+  // console.log("Client ID:", clientId);
+  // console.log("Redirect URI:", redirectUri);
 
   if (!(domain && clientId && redirectUri)) {
     console.error("Missing Auth0 configuration.");
