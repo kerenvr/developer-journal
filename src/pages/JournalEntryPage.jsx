@@ -6,14 +6,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { slugifySentences } from "../utils";
 
 export default function JournalEntry() {
-    const [publishing, setPublishing] = useState(false);
-    const [content, setContent] = useState("");
-    const [title, setTitle] = useState("");
+    const [publishing, setPublishing] = useState(false); // to update button text
+    const [content, setContent] = useState(""); // journal entry
+    const [title, setTitle] = useState(""); // title
     const [error, setError] = useState(null); // State for error handling
 
-    const { user } = useAuth0();
-
-    console.log(user);
+    const { user } = useAuth0(); // to get user name and user id
 
     const onChangeContent = useCallback((value) => {
         setContent(value);
@@ -27,7 +25,7 @@ export default function JournalEntry() {
         e.preventDefault();
         setPublishing(true); // Set publishing state
 
-        const author = user.nickname; // Assuming user.name contains the author's name
+        const author = user.nickname; 
         const authorId = user.sub; // Auth0 user ID
         const slug = slugifySentences(title); // Create slug from title
 
@@ -40,26 +38,26 @@ export default function JournalEntry() {
         };
 
         try {
-            const response = await fetch('/api/posts/create', {
+            const response = await fetch('/api/posts/create', { // post onto db
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(postData),
+                body: JSON.stringify(postData), // JSON format
             });
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
 
-            const data = await response.json();
-            console.log('Post created:', data);
-            // Optionally clear the form or update the UI
-            setTitle('');
-            setContent('');
+            // const data = await response.json();
+            // console.log('Post created:', data);
+            // // clear the form or update the UI
+            // setTitle('');
+            // setContent('');
         } catch (error) {
             console.error('Error creating post:', error);
-            setError('Failed to create post. Please try again.'); // Set error message
+            setError('Failed to create post. Please try again.'); 
         } finally {
             setPublishing(false); // Reset publishing state
         }

@@ -23,9 +23,9 @@ function App() {
             <Route 
               path="/blog"  
               element={
-                <ProtectedRoute>
+              
                   <BlogPage/>
-                </ProtectedRoute>}
+                }
             />
             <Route path="/newsletter"  element={<NewsletterPage/>}/>
             <Route path="/callback"  element={<CallbackPage/>}/>
