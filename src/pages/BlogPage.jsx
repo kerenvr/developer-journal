@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Accordion from "../components/accordion/Accordion"
 
+
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
